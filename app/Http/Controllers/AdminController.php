@@ -24,7 +24,7 @@ class AdminController extends Controller
             'email'=>'required|email|exists:admins',
             'password'=>'required'
         ]);
-        if (Auth::attempt($credentials,$request->remember)) {
+        if (Auth::guard('admin')->attempt($credentials,$request->remember)) {
             $request->session()->regenerate();
 
             return redirect()->intended(config('admin.prefix'));
@@ -35,7 +35,7 @@ class AdminController extends Controller
         ]);
     }
     public function logout(){
-        Auth::logout();
+        Auth::guard('admin')->logout();
         return redirect()->route('admin.login');
     }
 }

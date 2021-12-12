@@ -26,7 +26,7 @@
                         
                     
                         <li class="nav-item dropdown">
-                            <a href="#" class="nav-link" data-toggle="dropdown">{{ Auth::user()->name }}</a>
+                            <a href="#" class="nav-link" data-toggle="dropdown">Guest</a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a href="#" class="dropdown-item">My Profile</a>
                                 <a href="{{ route('admin.logout') }}"

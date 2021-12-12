@@ -17,7 +17,10 @@ return [
         'guard' => 'web',
         'passwords' => 'users',
     ],
-
+    'admin' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\Admin::class,
+    ],
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -42,7 +45,7 @@ return [
         ],
         
         'admin'=> [
-            'driver'=>'session',
+            'driver'=>'eloquent',
             'provider'=>'admins',
         ],
     ],
@@ -102,6 +105,10 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
+        ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
         ],
     ],
 
